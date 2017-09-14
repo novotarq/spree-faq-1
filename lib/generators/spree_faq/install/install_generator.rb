@@ -4,11 +4,11 @@ module SpreeFaq
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_javascripts
-        append_file 'vendor/assets/javascripts/spree/frontend/all.js', "//= require spree/frontend/spree_faq\n"
+        append_file 'app/assets/javascripts/application.js', "//= require spree/frontend/spree_faq\n"
       end
 
       def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/spree_faq\n", before: %r{\*\/}, verbose: true
+        inject_into_file 'app/assets/stylesheets/application.css', " *= require spree/frontend/spree_faq\n", before: %r{\*\/}, verbose: true
       end
 
       def add_migrations
